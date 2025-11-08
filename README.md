@@ -1,7 +1,7 @@
 
 # Ultra Fast TCP Server 🏎
 
-This is a mock implementation of a custom TCP server written in Java, built on top of Netty Event Lopping groups to handle millions of concurrent TCP connections for ultra-low latency systems.
+This is an implementation of a custom TCP server written in Java, built on top of Netty Event Lopping groups to handle millions of concurrent TCP connections for ultra-low latency systems.
 
 
 
