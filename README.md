@@ -32,8 +32,8 @@ Inside `channelRead()` you can write your data processing and transforming logic
 ```
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
         ByteBuf in = (ByteBuf) msg;
-        System.out.println("Received: " + in.toString(CharsetUtil.UTF_8)); // logic here
-        ctx.write(in); // Echo back
+                ctx.write(in); // Send data back to client
+        // in.release(); If you don't want to send anything back to client.. just stream or process data -> free memory
     }
 ```
 ## 📌 Important: Netty's `ByteBuf`
