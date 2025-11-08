@@ -10,7 +10,9 @@ public class CustomChannelHandler extends ChannelInboundHandlerAdapter {
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
         ByteBuf in = (ByteBuf) msg;
         System.out.println("Received: " + in.toString(CharsetUtil.UTF_8));
-        ctx.write(in); // Echo back
+        ctx.write(in); // Send data back to client
+        // in.release(); If you don't want to send anything back to client.. just stream or process data -> free memory
+
     }
 
     @Override
