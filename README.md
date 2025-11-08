@@ -28,7 +28,7 @@ There are mainly two main groups:
 
 The class `CustomChannelHandler` is where actual data processing is happening. This is where all the inbound network events are handled. The method `channelRead()` reads the `Object msg` casts it to `ByteBuf` and echo it on terminal and then writes back to `ByteBuf`.
 
-Inside `channelRead()` you can write your data processing and transforming logic to convert Netty's `ByteBuf` to your own Java POJO or any typed class and do your business logic processing, such network or database call or any computation.
+Inside `channelRead()` you can write your data processing and transforming logic to convert Netty's `ByteBuf` to your own Java POJO or any typed class and do your business logic processing, such as network or database call or any computation.
 ```
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
         ByteBuf in = (ByteBuf) msg;
