@@ -1,12 +1,12 @@
 
-# Ultra Fast TCP Server
+# Ultra Fast TCP Server 🏎
 
 This is a mock implementation of a custom TCP server written in Java, built on top of Netty Event Lopping groups to handle millions of concurrent TCP connections for ultra-low latency systems.
 
 
 
 
-## Architecture
+## Architecture 🛠
 
 The basic architecture is very simple and straight forward.
 
@@ -24,7 +24,7 @@ There are mainly two main groups:
 
 - `f.channel().closeFuture().sync()`: waits until the server channel is closed (e.g., close() was called). This keeps the main thread alive while Netty’s event loops do the work.
 
-## How to use it?
+## 📕 How to use it?
 
 The class `CustomChannelHandler` is where actual data processing is happening. This is where all the inbound network events are handled. The method `channelRead()` reads the `Object msg` casts it to `ByteBuf` and echo it on terminal and then writes back to `ByteBuf`.
 
@@ -36,7 +36,7 @@ Inside `channelRead()` you can write your data processing and transforming logic
         ctx.write(in); // Echo back
     }
 ```
-## Important: Netty's `ByteBuf`
+## 📌 Important: Netty's `ByteBuf`
 Unlike normal Java objects that rely on Garbage Collection (GC), Netty’s ByteBuf objects often use off-heap (native) memory — meaning memory outside the JVM heap.
 
 ➡️ The JVM’s GC does not automatically free off-heap memory.
@@ -65,7 +65,7 @@ Every ByteBuf has an internal reference count (refCnt), which is just an integer
 If you forget to release it, that’s a memory leak.
 If you release it twice, that’s a use-after-free error — reading from it after freeing memory.
 
-### The Safe Shortcut — Let Netty Manage It
+### ⚠️ The Safe Shortcut — Let Netty Manage It
 If you don’t need to manually keep the buffer, Netty can manage it automatically:
 ```
 ctx.write(in); // Echo back
