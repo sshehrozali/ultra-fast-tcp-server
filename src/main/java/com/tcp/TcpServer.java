@@ -15,7 +15,7 @@ public class TcpServer {
             var server = new ServerBootstrap();
             server
                     .group(bossGroup, workerGroup)
-                    .channel(NioServerSocketChannel.class)  // TCP connection
+                    .channel(NioServerSocketChannel.class)  // use Java NIO TCP server socket
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
